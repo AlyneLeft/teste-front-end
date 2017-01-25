@@ -61,13 +61,15 @@ function appController($scope) {
   };
 
   $scope.searchDetails = function(imdbID){
+    console.log("entrei na function");
     $scope.show_movie_list = false;
     $scope.show_nav = false;
     var url_search_details = "http://www.omdbapi.com/?i=" + imdbID;
     $.get(url_search_details, function(response){
+      console.log("entrei no get", response);
       $scope.obj_details = response;
-      $scope.$apply();
       $scope.show_details = true;
+      $scope.$apply();
     });
   };
 
