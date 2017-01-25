@@ -1,0 +1,265 @@
+body{
+	background-color: #141414;
+}
+.form-control:focus{
+	border-color: #B22222;
+}
+.thumbnail{
+	padding: 20px;
+	height: 100%;
+	padding-top: 30px;
+	background-color: #fff;
+    border: solid 1px;
+    border-radius: 15px;
+}
+.img{
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.thumbnail.details{
+	height: 100%;
+    display: inline-block;
+}
+.thumbnail:not(.details) .caption{
+	display: inline-block;
+    width: 100%;
+    padding-top: 0;
+}
+.thumbnail:not(.details) img{
+	max-width: 100%;
+}
+h3.details{
+	margin: 20px 10px;
+    font-weight: bold;
+}
+.navigation{
+	text-align: center;
+}
+ul{
+	padding-left: 10px;
+}
+li{
+	list-style: none;
+}
+h4.details{
+	font-weight: bold;
+	color: #8B0000;
+	text-align: left;
+	font-size: 21px;
+}
+h4.details span{
+	color: #141414;
+	font-size: 18px;
+}
+img.details{
+	margin-top: 32px;
+}
+.pb-20{
+	padding-bottom: 20px;
+}
+.btn{
+	background-color: #B22222;
+	border: solid 1px #B22222;
+}
+.btn:hover{
+	background-color: #8B0000;
+	border: solid 1px #8B0000;
+}
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn:active:focus, .btn:focus{
+	background-color: #B22222!important;
+	border-color: #B22222!important;
+	outline-color: #B22222!important;
+}
+.btn_details{
+	display: block;
+    width: 100%;
+    margin: 20px 0 0;
+}
+.btn_details a{
+	width: 100%;
+}
+.title{
+	text-align: center;
+    color: #000;
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px;
+    height: 58px;
+    overflow: hidden;
+}
+.height-100{
+	height: 100%;
+}
+.search-film{
+  height: 100%;
+  min-height: 100%;
+
+  /* habilita o flex nos filhos diretos */
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+
+  /* centraliza na vertical */
+  -ms-align-items: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+  /* centraliza na horizontal */
+  -ms-justify-content: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.slideInUp{
+	min-height: 10%;
+	height: 10%;
+	margin-top: 10px;
+}
+.closeDetails{
+	float: none;
+    margin: 0;
+}
+.row_details > div{
+	text-align: center;
+}
+.pagination>li>a, .pagination>li>span{
+	color: #B22222;
+	cursor: pointer;
+}
+.pagination>li>a:hover, .pagination>li>span:hover{
+	color: #8B0000;
+}
+.results{
+	text-align: center;
+    color: #B22222;
+    font-size: 16px;
+}
+.modal-header{
+	border: none;
+	color: #b22222;
+    font-weight: bold;
+}
+@media (min-width: 1200px){
+	.img {
+	    height: 400px;
+	}
+	.title{
+		font-size: 24px;
+		height: 78px;
+	}
+	.closeDetails{
+		float: right;
+		margin-right: 15px;
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px){
+	.img {
+	    height: 300px;
+	}
+	.title{
+		font-size: 22px;
+		height: 76px;
+	}
+	.closeDetails{
+		float: right;
+		margin-right: 15px;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px){
+	.img {
+	    height: 200px;
+	}
+	.title{
+		font-size: 18px;
+		height: 56px;
+	}
+	.closeDetails{
+		float: right;
+		margin-right: 15px;
+	}
+}
+@media (min-width: 721px) and (max-width: 767px){
+	.img {
+	    height: 270px;
+	}
+	.thumbnail:not(.details){
+		width: 40%;
+    	float: left;
+    	margin-left: 7%;
+	}
+}
+@media (min-width: 671px) and (max-width: 720px){
+	.img {
+	    height: 250px;
+	}
+	.thumbnail:not(.details){
+		width: 40%;
+    	float: left;
+    	margin-left: 7%;
+	}
+}
+@media (min-width: 631px) and (max-width: 670px){
+	.img {
+	    height: 220px;
+	}
+	.thumbnail:not(.details){
+		width: 40%;
+    	float: left;
+    	margin-left: 7%;
+	}
+}
+@media (min-width: 601px) and (max-width: 630px){
+	.img {
+	    height: 192px;
+	}
+	.thumbnail:not(.details){
+		width: 40%;
+    	float: left;
+    	margin-left: 7%;
+	}
+}
+@media (min-width: 480px) and (max-width: 600px){
+	.img {
+	    height: 434px;
+	}
+	.title{
+		font-size: 22px;
+		height: 74px;
+	}
+}
+@media (min-width: 440px) and (max-width: 479px){
+	.img {
+	    height: 392px;
+	}
+	.title{
+		font-size: 22px;
+		height: 72px;
+	}
+}
+@media (min-width: 400px) and (max-width: 439px){
+	.img {
+	    height: 340px;
+	}
+}
+@media (min-width: 360px) and (max-width: 399px){
+	.img {
+	    height: 280px;
+	}
+}
+@media (min-width: 320px) and (max-width: 359px){
+	.img {
+	    height: 230px;
+	}
+}
+@media (min-width: 300px) and (max-width: 319px){
+	.img {
+	    height: 200px;
+	}
+	.title{
+		font-size: 18px;
+		height: 58px;
+	}
+	.row_details{
+		display: block;
+	}
+}

@@ -1,16 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="searchFilmApp" class="height-100">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Busca de filmes</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
   </head>
-  <body>
-    <form id="search-film">
-      <input type="text" id="search-film-input" placeholder="Procure seu filme">
-      <button type="submit" id="search-film-submit">Pesquisar</button>
-    </form>
-    <div id="results"></div>
+  <body class="height-100">
+    <div class="container height-100" ng-controller="appController">
+      <!-- form search -->
+      <form class="search-film animated" ng-class="myVar">
+        <div class="input-group input-group-lg">
+          <input type="text" class="form-control center-block" placeholder="Procure seu filme" aria-describedby="sizing-addon2" ng-model="search_field"
+          required>
+          <span class="input-group-btn">
+            <button class="btn btn-primary" ng-click="myVar='slideInUp';searchFilm()">Buscar</button>
+          </span>
+        </div>
+      </form>
+      <!-- end form search -->
+
+      <!-- movie list -->
+      <div class="col-sm-12" ng-show="show_movie_list">
+        <div ng-repeat="item in resp.Search" ng-show="$index <= index_max && $index >= index_min">
+          <div class="col-sm-4">
+            <div class="thumbnail">
+              <div class="img"><img ng-src="{{item.Poster}}" onerror="this.src='img/sem_img.jpg'" class="col-sm-12 pb-20"></div>
+              <div class="caption">
+                <h3 class="title">{{item.Title}}</h3>
+                <p class="btn_details col-sm-8"><a href="#" class="btn btn-primary btn-lg" role="button" ng-click="searchDetails(item.imdbID)">Detalhes</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end movie list -->
+
+      <!-- pagination -->
+      <nav aria-label="Page navigation" class="navigation" ng-show="show_nav">
+        <ul class="pagination pagination-lg">
+          <li>
+            <a href="#" aria-label="Previous" ng-click="prevPage()">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li ng-repeat="p in pages" ng-click="changePage(p)" ng-show="$index <= index_nav_max && $index >= index_nav_min"><span>{{p.num}}</span></li>
+          <li>
+            <a href="#" aria-label="Next" ng-click="nextPage()">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <span class="col-sm-12 results" ng-show="show_nav">{{resp.totalResults}} resultados escontrados</span>
+      <!-- end pagination -->
+
+      <!-- movie details -->
+      <div class="row row_details" ng-show="show_details">
+        <div class="col-sm-12">
+          <div class="thumbnail details">
+            <img ng-src="{{obj_details.Poster}}" alt="" onerror="this.src='img/sem_img.jpg'" class="col-sm-4 details">
+            <div class="caption col-sm-8">
+              <h3 class="details">Detalhes do Filme</h3>
+              <ul>
+                <li>
+                  <h4 class="details">Title: <span>{{obj_details.Title}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Year: <span>{{obj_details.Year}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Rated: <span>{{obj_details.Rated}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Genre: <span>{{obj_details.Genre}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Director: <span>{{obj_details.Director}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Writer: <span>{{obj_details.Writer}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Actors: <span>{{obj_details.Actors}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Plot: <span>{{obj_details.Plot}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Language: <span>{{obj_details.Language}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Country: <span>{{obj_details.Country}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Awards: <span>{{obj_details.Awards}}</span></h4>
+                </li>
+                <li>
+                  <h4 class="details">Type: <span>{{obj_details.Type}}</span></h4>
+                </li>
+              </ul>
+            </div>
+            <p class="closeDetails"><a href="#" class="btn btn-primary btn-lg" role="button" ng-click="closeDetails()">Voltar</a></p>
+          </div>
+        </div>
+      </div>
+      <!-- end movie details -->
+
+      <!-- modal not found -->
+      <div id="notFound" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <p>Nenhum resultado encontrado!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end modal not found -->
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="application.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
