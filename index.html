@@ -48,7 +48,9 @@
               <span aria-hidden="true">&laquo;</span>
             </a>
           </li>
-          <li ng-repeat="p in pages" ng-click="changePage(p)" ng-show="$index <= index_nav_max && $index >= index_nav_min"><span>{{p.num}}</span></li>
+          <li ng-repeat="p in pages" ng-click="changePage(p)" ng-show="$index <= index_nav_max && $index >= index_nav_min" ng-class="{active : $index == selected}">
+            <span>{{p.num}}</span>
+          </li>
           <li>
             <a href="#" aria-label="Next" ng-click="nextPage()">
               <span aria-hidden="true">&raquo;</span>
@@ -56,7 +58,7 @@
           </li>
         </ul>
       </nav>
-      <span class="col-sm-12 results" ng-show="show_nav">{{resp.totalResults}} resultados escontrados</span>
+      <span class="col-sm-12 results" ng-show="show_nav">{{resp.totalResults}} resultado(s) escontrado(s)</span>
       <!-- end pagination -->
 
       <!-- movie details -->
