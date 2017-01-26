@@ -126,8 +126,10 @@ img.details{
 	color: #B22222;
 	cursor: pointer;
 }
-.pagination>li>a:hover, .pagination>li>span:hover{
-	color: #8B0000;
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>span:active, .pagination>li>span:visited, .pagination>li.active>span{
+	color: #fff;
+	background-color: #B22222!important;
+	border-color: #b22222!important;
 }
 .results{
 	text-align: center;
